@@ -1,0 +1,46 @@
+@BaseUrl = http://localhost:5000
+
+### 1. Get all students
+GET {{BaseUrl}}/api/students
+Accept: application/json
+
+### 2. Filter students by department
+GET {{BaseUrl}}/api/students?department=Computer
+Accept: application/json
+
+### 3. Get student by ID
+GET {{BaseUrl}}/api/students/1
+Accept: application/json
+
+### 4. Create a new student
+POST {{BaseUrl}}/api/students
+Content-Type: application/json
+
+{
+  "enrollmentNo": "92400120031",
+  "fullName": "Neha Verma",
+  "department": "Computer Science and Engineering",
+  "semester": 5,
+  "email": "neha.verma@example.edu",
+  "cgpa": 8.9
+}
+
+### 5. Update an existing student
+PUT {{BaseUrl}}/api/students/1
+Content-Type: application/json
+
+{
+  "enrollmentNo": "92400120001",
+  "fullName": "Aarav Patel",
+  "department": "Computer Science and Engineering",
+  "semester": 6,
+  "email": "aarav.patel@example.edu",
+  "cgpa": 8.65
+}
+
+### 6. Delete a student
+DELETE {{BaseUrl}}/api/students/3
+
+### 7. Test global exception middleware
+GET {{BaseUrl}}/api/students/error-test
+Accept: application/json
